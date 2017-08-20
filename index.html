@@ -1101,8 +1101,8 @@ More in
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-08-16T11:21:28+08:00">
-                2017-08-16
+              <time title="更新于" itemprop="dateModified" datetime="2017-08-20T22:57:27+08:00">
+                2017-08-20
               </time>
             
           </span>
@@ -1137,8 +1137,11 @@ More in
       
         
           
-          
-          
+          在默认的utf-8编码下，一个中文占用3个字符，而显示占用2个字符。每个中文占用的是一个全角字符位置，因此和半角字符组合在一起就不能对齐了。  
+思路如下：既然中文显示占2个字符，英文字母、数字、符号等占1个字符，则有多少个半角字符就填充多少个额外的字符(空格)，从而保证输出对齐  
+以下是实现的源代码  
+12345678910111213import redef print_subejectInfo(text,width,align=0):#align为0时左对齐，为1时右对齐`      if len(text)&gt;width:        print(text,end=&apos
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/08/11/Python中英文混合字符串对齐输出/#more" rel="contents">

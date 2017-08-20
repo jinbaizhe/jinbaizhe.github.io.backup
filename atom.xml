@@ -102,9 +102,12 @@
     <link href="https://jinbaizhe.github.io/2017/08/11/Python%E4%B8%AD%E8%8B%B1%E6%96%87%E6%B7%B7%E5%90%88%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E9%BD%90%E8%BE%93%E5%87%BA/"/>
     <id>https://jinbaizhe.github.io/2017/08/11/Python中英文混合字符串对齐输出/</id>
     <published>2017-08-11T03:10:58.000Z</published>
-    <updated>2017-08-16T03:21:28.155Z</updated>
+    <updated>2017-08-20T14:57:27.509Z</updated>
     
     <summary type="html">
+    
+      &lt;p&gt;在默认的utf-8编码下，一个中文占用3个字符，而显示占用2个字符。每个中文占用的是一个全角字符位置，因此和半角字符组合在一起就不能对齐了。  &lt;/p&gt;
+&lt;p&gt;思路如下：既然中文显示占2个字符，英文字母、数字、符号等占1个字符，则有多少个半角字符就填充多少个额外的字符(空格
     
     </summary>
     

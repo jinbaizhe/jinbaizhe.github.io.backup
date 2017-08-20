@@ -96,17 +96,17 @@
 
 
 
-<meta name="description" content="Stay Hungry,Stay Foolish">
+<meta name="description" content="在默认的utf-8编码下，一个中文占用3个字符，而显示占用2个字符。每个中文占用的是一个全角字符位置，因此和半角字符组合在一起就不能对齐了。   思路如下：既然中文显示占2个字符，英文字母、数字、符号等占1个字符，则有多少个半角字符就填充多少个额外的字符(空格)，从而保证输出对齐   以下是实现的源代码   12345678910111213import redef print_subejectI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python中英文混合字符串对齐输出">
 <meta property="og:url" content="https://jinbaizhe.github.io/2017/08/11/Python中英文混合字符串对齐输出/index.html">
 <meta property="og:site_name" content="Parker&#39;s Blog">
-<meta property="og:description" content="Stay Hungry,Stay Foolish">
+<meta property="og:description" content="在默认的utf-8编码下，一个中文占用3个字符，而显示占用2个字符。每个中文占用的是一个全角字符位置，因此和半角字符组合在一起就不能对齐了。   思路如下：既然中文显示占2个字符，英文字母、数字、符号等占1个字符，则有多少个半角字符就填充多少个额外的字符(空格)，从而保证输出对齐   以下是实现的源代码   12345678910111213import redef print_subejectI">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-16T03:21:28.155Z">
+<meta property="og:updated_time" content="2017-08-20T14:57:27.509Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python中英文混合字符串对齐输出">
-<meta name="twitter:description" content="Stay Hungry,Stay Foolish">
+<meta name="twitter:description" content="在默认的utf-8编码下，一个中文占用3个字符，而显示占用2个字符。每个中文占用的是一个全角字符位置，因此和半角字符组合在一起就不能对齐了。   思路如下：既然中文显示占2个字符，英文字母、数字、符号等占1个字符，则有多少个半角字符就填充多少个额外的字符(空格)，从而保证输出对齐   以下是实现的源代码   12345678910111213import redef print_subejectI">
 
 
 
@@ -369,8 +369,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-08-16T11:21:28+08:00">
-                2017-08-16
+              <time title="更新于" itemprop="dateModified" datetime="2017-08-20T22:57:27+08:00">
+                2017-08-20
               </time>
             
           </span>
@@ -403,7 +403,13 @@
       
 
       
-        
+        <p>在默认的utf-8编码下，一个中文占用3个字符，而显示占用2个字符。每个中文占用的是一个全角字符位置，因此和半角字符组合在一起就不能对齐了。  </p>
+<p>思路如下：既然中文显示占2个字符，英文字母、数字、符号等占1个字符，则有多少个半角字符就填充多少个额外的字符(空格)，从而保证输出对齐  </p>
+<p>以下是实现的源代码  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">import re</div><div class="line">def print_subejectInfo(text,width,align=0):#align为0时左对齐，为1时右对齐`  </div><div class="line">    if len(text)&gt;width:</div><div class="line">        print(text,end=&apos;&apos;)#原字符串长度超过输出宽度时，输出原字符串</div><div class="line">        return</div><div class="line">    numOfChinese=len(re.findall(&apos;[\u4e00-\u9fa5]&apos;,text))</div><div class="line">    numOfOthers = len(text) - numOfChinese</div><div class="line">    if align==0:</div><div class="line">        print(text,end=&apos;&apos;)</div><div class="line">        print(&apos; &apos;*(width*2-numOfOthers-numOfChinese*2),end=&apos;&apos;)</div><div class="line">    else:</div><div class="line">        print(&apos; &apos;*(width*2-numOfOthers-numOfChinese*2),end=&apos;&apos;)</div><div class="line">        print(text,end=&apos;&apos;)</div></pre></td></tr></table></figure>
+<p>#以下是测试代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">string=&quot;Python中英文123!@&quot;</div><div class="line">print_subejectInfo(string,20,0)</div><div class="line">print()</div><div class="line">print_subejectInfo(&apos;1234567890123456789012345678901234567890&apos;,20,0)</div><div class="line">print()</div><div class="line">print_subejectInfo(string,10,0)</div></pre></td></tr></table></figure></p>
+<p>测试结果<br><code>Python中英文123!@</code><br><code>1234567890123456789012345678901234567890</code><br><code>Python中英文123!@</code></p>
+
       
     </div>
     
